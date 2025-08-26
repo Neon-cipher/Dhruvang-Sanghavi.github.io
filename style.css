@@ -1,0 +1,118 @@
+/* Reset & Fonts */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #0a0f1f, #101629);
+  color: #f4f4f4;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar .logo { font-size: 1.5rem; font-weight: bold; }
+.navbar ul { list-style: none; display: flex; gap: 1.5rem; }
+.navbar a { text-decoration: none; color: #fff; transition: color 0.3s; }
+.navbar a:hover { color: #3ee7ff; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.hero .img-wrapper {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+}
+.hero h2 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+.hero p { max-width: 600px; margin: 0 auto 1.5rem; }
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  margin: 0 0.5rem;
+  transition: transform 0.3s, background 0.3s;
+}
+.btn.primary { background: #3ee7ff; color: #000; }
+.btn.secondary { background: #222; border: 1px solid #3ee7ff; color: #3ee7ff; }
+.btn:hover { transform: translateY(-3px); }
+
+/* Projects */
+.projects {
+  padding: 3rem 2rem;
+}
+.projects h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.project-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.project-card:hover { transform: translateY(-5px); }
+
+/* Blur Effect - Auto */
+.auto-blur img {
+  display: block;
+  width: 100%;
+  filter: blur(20px);
+  transform: scale(1.1);
+  opacity: 0.7;
+  transition: filter 0.6s ease, transform 0.6s ease, opacity 0.6s ease;
+}
+.auto-blur img.loaded {
+  filter: blur(0);
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Blur Effect - Thumbnail */
+.thumbnail-blur img {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  width: 100%;
+  display: block;
+}
+.thumbnail-blur img.loaded { opacity: 1; }
+.thumbnail-blur .img-placeholder {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px);
+  transform: scale(1.1);
+  transition: opacity 0.6s ease;
+}
+.thumbnail-blur .img-placeholder.hidden {
+  opacity: 0; visibility: hidden;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar ul { display: none; }
+  .hero h2 { font-size: 1.8rem; }
+  .projects h3 { font-size: 1.5rem; }
+}
